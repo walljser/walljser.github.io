@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>博客-余世杰</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="wall">
+  
+  
+  <meta name="description" content="想到什么写什么，思想居无定所">
+<meta property="og:type" content="website">
+<meta property="og:title" content="博客-余世杰">
+<meta property="og:url" content="http://yushijie.club/index.html">
+<meta property="og:site_name" content="博客-余世杰">
+<meta property="og:description" content="想到什么写什么，思想居无定所">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="博客-余世杰">
+<meta name="twitter:description" content="想到什么写什么，思想居无定所">
+  
+    <link rel="alternate" href="/atom.xml" title="博客-余世杰" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+</html>
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">博客-余世杰</a></h1>
+    <p><a href="/"></a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content">
+
+
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/17/diff-what/">
+  <time datetime="2018-10-16T16:02:32.000Z">
+    2018-10-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2018/10/17/diff-what/">diff算法是什么</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>虚拟DOM的表示比较简单，其实对比找出两棵树的差异才是Virtual DOM算法的最核心部分，也就是我们所说的diff算法。</p>
+<p>两棵树的完全对比时间复杂度是O(n^3)，这个开销是非常大的，但是我们如果可以只对比两棵树的同层级节点，不去管不能层级的节点差异（因为我们很少跨层级地移动DOM节点），那么时间复杂度就可以降到O(n)，React的diff算法就是这么做的：</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2018/10/17/diff-what/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/10/virtual-dom/">
+  <time datetime="2018-10-10T04:08:25.000Z">
+    2018-10-10
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2018/10/10/virtual-dom/">虚拟DOM原理了解一下</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>我们都知道前端的DOM是一棵树，例如下面这个DOM:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"theme"</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://baidu.jpg"</span> <span class="attr">alt</span>=<span class="string">"图片"</span> <span class="attr">title</span>=<span class="string">"图片"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>a test<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2018/10/10/virtual-dom/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/05/13/typescript2/">
+  <time datetime="2018-05-12T16:42:16.000Z">
+    2018-05-13
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2018/05/13/typescript2/">typescript2</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="可迭代性"><a href="#可迭代性" class="headerlink" title="可迭代性"></a>可迭代性</h3><p>当一个对象实现了Symbol.iterator属性时，则该对象是可迭代的。 一些内置的类型如Array，Map，Set，String，Int32Array，Uint32Array等都已经实现了各自的Symbol.iterator。 对象上的Symbol.iterator函数负责返回供迭代的值。<br>
+    
+  </p></div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2018/05/13/typescript2/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/04/11/typescript1/">
+  <time datetime="2018-04-11T10:38:14.000Z">
+    2018-04-11
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2018/04/11/typescript1/">Typescript学习（一）：高级类型</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="交叉类型"><a href="#交叉类型" class="headerlink" title="交叉类型"></a>交叉类型</h3><p>交叉类型就是将多个类型合并成一个新的类型，构成的这个新类型具有这几个类型的成员，拥有这几个类型的特性，就像是集合中的并集。<br>
+    
+  </p></div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2018/04/11/typescript1/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2017/10/12/http-status/">
+  <time datetime="2017-10-12T14:39:05.000Z">
+    2017-10-12
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2017/10/12/http-status/">HTTP状态码</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h1 id="访问网页的各种http状态码的解释说明"><a href="#访问网页的各种http状态码的解释说明" class="headerlink" title="访问网页的各种http状态码的解释说明"></a>访问网页的各种http状态码的解释说明</h1><h3 id="一、1xx信息系列"><a href="#一、1xx信息系列" class="headerlink" title="一、1xx信息系列"></a>一、1xx信息系列</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">100：continue-&gt;服务器仅仅接受到部分请求，但是一旦服务器没有拒绝该请求，客户端应该继续</span><br><span class="line">    发送其他请求</span><br><span class="line">101：switching protocols-&gt;服务器转换协议，服务器将遵从客户的请求转换到另一种协议</span><br><span class="line">102：processing-&gt;处理将继续执行</span><br></pre></td></tr></table></figure>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2017/10/12/http-status/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">wall</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>

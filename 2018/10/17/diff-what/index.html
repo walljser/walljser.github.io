@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  
+  <title>diff算法是什么 | 博客-余世杰</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta name="author" content="wall">
+  
+  
+    <meta name="description" content="虚拟DOM的表示比较简单，其实对比找出两棵树的差异才是Virtual DOM算法的最核心部分，也就是我们所说的diff算法。
+两棵树的完全对比时间复杂度是O(n^3)，这个开销是非常大的，但是我们如果可以只对比两棵树的同层级节点，不去管不能层级的节点差异（因为我们很少跨层级地移动DOM节点），那么时间复杂度就可以降到O(n)，React的diff算法就是这么做的：">
+  
+  <meta name="description" content="虚拟DOM的表示比较简单，其实对比找出两棵树的差异才是Virtual DOM算法的最核心部分，也就是我们所说的diff算法。 两棵树的完全对比时间复杂度是O(n^3)，这个开销是非常大的，但是我们如果可以只对比两棵树的同层级节点，不去管不能层级的节点差异（因为我们很少跨层级地移动DOM节点），那么时间复杂度就可以降到O(n)，React的diff算法就是这么做的：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="diff算法是什么">
+<meta property="og:url" content="http://yushijie.club/2018/10/17/diff-what/index.html">
+<meta property="og:site_name" content="博客-余世杰">
+<meta property="og:description" content="虚拟DOM的表示比较简单，其实对比找出两棵树的差异才是Virtual DOM算法的最核心部分，也就是我们所说的diff算法。 两棵树的完全对比时间复杂度是O(n^3)，这个开销是非常大的，但是我们如果可以只对比两棵树的同层级节点，不去管不能层级的节点差异（因为我们很少跨层级地移动DOM节点），那么时间复杂度就可以降到O(n)，React的diff算法就是这么做的：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-30T07:36:51.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="diff算法是什么">
+<meta name="twitter:description" content="虚拟DOM的表示比较简单，其实对比找出两棵树的差异才是Virtual DOM算法的最核心部分，也就是我们所说的diff算法。 两棵树的完全对比时间复杂度是O(n^3)，这个开销是非常大的，但是我们如果可以只对比两棵树的同层级节点，不去管不能层级的节点差异（因为我们很少跨层级地移动DOM节点），那么时间复杂度就可以降到O(n)，React的diff算法就是这么做的：">
+  
+    <link rel="alternate" href="/atom.xml" title="博客-余世杰" type="application/atom+xml">
+  
+  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+</html>
+<body>
+  <div class="wrapper">
+    <header id="header">
+  <div class="title">
+    <h1><a href="/">博客-余世杰</a></h1>
+    <p><a href="/"></a></p>
+  </div>
+  <nav class="nav">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+      
+        <li><a href="/atom.xml">RSS</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+  <div class="clearfix"></div>
+</header>
+    <div class="content"><article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2018/10/17/diff-what/">
+  <time datetime="2018-10-16T16:02:32.000Z">
+    2018-10-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title">diff算法是什么</h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>虚拟DOM的表示比较简单，其实对比找出两棵树的差异才是Virtual DOM算法的最核心部分，也就是我们所说的diff算法。</p>
+<p>两棵树的完全对比时间复杂度是O(n^3)，这个开销是非常大的，但是我们如果可以只对比两棵树的同层级节点，不去管不能层级的节点差异（因为我们很少跨层级地移动DOM节点），那么时间复杂度就可以降到O(n)，React的diff算法就是这么做的：</p>
+<a id="more"></a>
+<blockquote>
+<ol>
+<li>DOM节点跨层级的移动操作发生频率很低，是次要矛盾</li>
+<li>相同的组件产生类似的DOM结构，不同的组件产生不同的DOM结构</li>
+<li>对于同一层次的一组子节点，可以通过唯一的id(即key)进行区分</li>
+</ol>
+</blockquote>
+<h3 id="DOM对比差异类型"><a href="#DOM对比差异类型" class="headerlink" title="DOM对比差异类型"></a>DOM对比差异类型</h3><p>在实际中，会对两颗虚拟DOM树进行深度优先遍历，并记录差异类型，最终将差异应用到界面上。那都有哪些差异类型呢？</p>
+<blockquote>
+<ol>
+<li>替换类型，替换掉原来的节点</li>
+<li>移动、删除、新增子节点，列表的移动比较难对比出来，于是采取key策略，给同层的每一个DOM一个唯一的key，帮助优化对比；当发现节点已经不存在时，直接删除该节点和所有子节点信息，不再进行比较</li>
+<li>修改节点属性</li>
+<li>对于文本节点来说，有可能存在文本内容替换类型</li>
+</ol>
+</blockquote>
+<p>如果真的发生了跨层级移动，React是不会机智的判定出DOM节点只是发生了移动，而是会直接销毁节点，并在另一个地方重新创建这个节点。所以，这也是React官方推荐不要进行跨层级DOM移动的原因，在实际开发中，保持一个稳定的DOM结构有利于提升页面性能。</p>
+<h3 id="Virtual-DOM算法总结"><a href="#Virtual-DOM算法总结" class="headerlink" title="Virtual DOM算法总结"></a>Virtual DOM算法总结</h3><blockquote>
+<ol>
+<li>使用JavaScript对象来表示DOM树结构（虚拟DOM树）</li>
+<li>状态变化时，构造一颗新的虚拟DOM树，对新旧两棵虚拟DOM树进行深度优先遍历</li>
+<li>分层寻找差异，只对比同层节点</li>
+<li>分组件类型寻找差异，相同类型的组件才生成相同的DOM树结构，优化component dirty</li>
+<li>寻找出所有差异类型，应用到真实的DOM中，完成页面更新</li>
+</ol>
+</blockquote>
+
+    
+  </div>
+  <footer>
+    
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+</div>
+  </div>
+  <footer id="footer"><div class="copyright">
+  
+  &copy; 2018 <a href="/">wall</a>
+  
+</div>
+<div class="theme-copyright">
+  Theme by <a href="https://github.com/orderedlist" target="_blank">orderedlist</a>
+   | 
+  Redesign by <a href="http://heroicyang.com/" target="_blank">Heroic Yang</a>
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="/js/scale.fix.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox();
+  })(jQuery);
+</script>
+
+</body>
+</html>
